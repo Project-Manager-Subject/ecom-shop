@@ -108,7 +108,27 @@ if (!isset($_SESSION)) {
                                         </div>
                                         <div class="cate_pro">
                                             <div id='cssmenu_flyout' class="display_destop_menu">
-                                                <!-- Bổ sung code tại đây -->
+                                                <ul>
+                                                    <?php
+                                                        if(!empty($category_product)):
+                                                            foreach($category_product as $key => $value):
+                                                    
+                                                    ?>
+                                                            <li class ="active has-sub">
+                                                                <a href="<?php echo BASE_URL ?>/product_home/list_product_ByID/">
+                                                                <span><?php echo $value['title_category_product'] ?></span>
+                                                                </a>
+                                                            
+                                                            </li>
+
+
+
+                                                            <?php endforeach ?>
+                                                        <?php endif ?>
+
+                                                            
+
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
