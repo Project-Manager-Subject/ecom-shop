@@ -108,7 +108,27 @@ if (!isset($_SESSION)) {
                                         </div>
                                         <div class="cate_pro">
                                             <div id='cssmenu_flyout' class="display_destop_menu">
-                                                <!-- Bổ sung code tại đây -->
+                                                <ul>
+                                                    <?php
+                                                        if(!empty($category_product)):
+                                                            foreach($category_product as $key => $value):
+                                                    
+                                                    ?>
+                                                            <li class ="active has-sub">
+                                                                <a href="<?php echo BASE_URL ?>/product_home/list_product_ByID/<?php echo $value['title_category_product'] ?>">
+                                                                <span><?php echo $value['title_category_product'] ?></span>
+                                                                </a>
+                                                            
+                                                            </li>
+
+
+
+                                                            <?php endforeach ?>
+                                                        <?php endif ?>
+
+                                                            
+
+                                                </ul>
                                             </div>
                                         </div>
                                     </div>
@@ -117,8 +137,25 @@ if (!isset($_SESSION)) {
                             <div class="search_top">
                                 <div id='cssmenu'>
                                     <ul>
-
-
+                                        <li class ="active"><a href="<?php echo BASE_URL ?>">trang chủ</a></li>
+                                        <li class =""><a href="<?php echo BASE_URL ?>/product_home/all_product">Sản phẩm</a></li>
+                                        <li class="">
+                                            <a href="<?php echo BASE_URL  ?>/post_home/">Tin Tức</a>
+                                            <ul>
+                                                <?php 
+                                                    if($category_post):
+                                                        foreach($category_post as $key => $value):
+                                                
+                                                ?>
+                                                        <li>
+                                                            <a href="<?php echo BASE_URL ?>/post_home/list_post_ByID/<?php echo $value['id_category_post'] ?>">
+                                                            <?php echo $value['title_category_post'] ?>
+                                                            </a>
+                                                        </li>
+                                                        <?php endforeach ?>
+                                                    <?php endif ?>
+                                            </ul>
+                                        </li>
                                         <!-- Bổ sung code tại đây -->
                                         <li class=''><a href='<?php echo BASE_URL ?>/cart/'>Giỏ hàng</a></li>
 
