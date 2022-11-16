@@ -23,7 +23,41 @@
                             $total += ($value['price_product'] * $value['cart_quantity']);
                     ?>
                             <form action='./gio-hang/' method="post">
-                               <!-- Bổ sung code tại đây -->
+                                <tr class="tr">
+                                    <td data-th="Hình ảnh">
+                                        <div class="col_table_image col_table_hidden-xs"><img src="<?php echo BASE_URL ?>/public/upload/product/<?php echo $value['image_product'] ?>"
+                                        alt="Máy in laser Canon LBP2510DW" class="img-responsive" /></div>
+                                    </td>
+                                    <td data-th="Sản phẩm">
+                                        <div class="col_table_name">
+                                            <h4 class="nomargin"><?php echo $value['title_product'] ?></h4>
+                                        </div>
+                                    </td>
+                                    <td data-th="Giá"><span class="color_red font_money"> <?php echo number_format($value['price_product'], 0, '.', ',') ?> đ</span></td>
+                                    <td data-th="Số lượng">
+                                        <div class="clear margintop5">
+                                            <form action="">
+                                                <div style="display: flex; align-items: center">
+                                                    
+                                                    <input style="margin: 0 10px;" type="number" class="inputsoluong" min="0" name="qty[567]"
+                                                    value="<?php echo $value['cart_quantity'] ?>" readonly>
+
+                                                </div>
+                                            </form>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </td>
+                                    <td data-th="Thành tiền" class="text_center"><span class="color_red font_money">
+                                        <?php echo number_format(($value['price_product'] * $value['cart_quantity']), 0, '.',',') ?> đ</span></td>
+
+                                    <td>
+                                        <?php if($value['cart_status'] ==0) :?>
+                                            <p>Pending...</p>
+                                        <?php else : ?>
+                                            <p>Đã giao hàng</p>
+                                        <?php endif ?>
+                                    </td>
+                                </tr>
                             </form>
                         <?php endforeach ?>
                         <tr>
