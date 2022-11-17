@@ -74,17 +74,39 @@ class cart extends DController
     }
     public function delete_cart($id)
     {
-       
+        Session::init();
+        foreach ($_SESSION['cart'] as $key => $value){
+            if($_SESSION['cart'][$key]['id_product'] == $id)
+            unset($_SESSION['cart'][$key]);
+        } 
         header("Location: " . BASE_URL . "/cart");
     }
     public function minus($id)
     {
-       
+        Session::init();
+        foreach ($_SESSION['cart'] as $key => $value)
+        {
+            if($_SESSION['cart'][$key]['id_product'] == $id){
+                --$_SESSION['cart'][$key]['quantity_product'];
+                if($_SESSION['cart'][$key]['quantity_product'] < 1){
+                    $this->delete_cart($id);
+                }
+            }
+        }
         header("Location: " . BASE_URL . "/cart");
     }
     public function plus($id)
     {
-        
+        Session::init();
+        foreach ($_SESSION['cart'] as $key => $value)
+        {
+            if($_SESSION['cart'][$key]['id_product'] == $id){
+                ++$_SESSION['cart'][$key]['quantity_product'];
+                if($_SESSION['cart'][$key]['quantity_product'] < 1){
+                    $this->delete_cart($id);
+                }
+            }
+        }
         header("Location: " . BASE_URL . "/cart");
     }
     public function cartconfirm()
