@@ -94,6 +94,43 @@ class ordered extends DController
     }
     public function printer_ordered($id)
     {
-        // bổ sung code tại đây
+        require('tfpdf/tfpdf.php');
+        $pdf = new tFPDF('P','mm', 'A4');
+        $pdf->AddPage("0");
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->AddFont('DejaVu', '', 'DejaVuSansCondensed.ttf', true);
+        $pdf->SetFont('DejaVu', 'B', 14);
+        $pdf->Write(10, 'Đơn hàng của bạn gồm có: ');
+        $pdf->ln(10);
+
+        $width_cell = array(5, 80, 20, 30, 40);
+
+        $pdf->cell($width_cell[0], 10, 'ID', 1, 0, 'C', true);
+        $pdf->cell($width_cell[1], 10, 'Tên sản phảm', 1, 0, 'C', true);
+        $pdf->cell($width_cell[2], 10, 'Số lượng ', 1, 0, 'C', true);
+        $pdf->cell($width_cell[3], 10, 'Giá', 1, 0, 'C', true);
+        $pdf->cell($width_cell[4], 10, 'Tổng tiền', 1, 1, 'C', true);
+        $pdf->SetFillColor(235, 236, 236);
+        $fill = false;
+        $i = 0;
+
+        $model = $this->load->model("Public_Model");
+        $table = "tbl_cart, tbl_product, tbl_cart_detail ";
+        $cond = "tbl_cart_detail.product_id = tbl_product.id_product and tbl_cart_detail.code_cart = tbl_cart.code_cart 
+        and tbl_cart.cart_id = $id ";
+        $row = $model->select($table, [], $cond);
+        foreach($row as $key => $value){
+            $pdf-> cell($width_cell[0], 10, $i, 1, 0, 'C', $fill);
+            $pdf-> cell($width_cell[1], 10, $value['title_product'], 1, 0, 'C', $fill);
+            $pdf-> cell($width_cell[2], 10, $value['cart_quantity'], 1, 0, 'C', $fill);
+            $pdf-> cell($width_cell[3], 10, number_format($value['title_product']), 1, 0, 'C', $fill);
+            $pdf-> cell($width_cell[4], 10, number_format($value['cart_quantity'] * $value['title_product']), 1, 1, 'C', $fill);
+            $fill = !$fill;
+        }
+        $pdf->Write(10, 'Cảm ơn bạn đã đặt hàng tại website của chúng tôi.');
+        $pdf->ln(10);
+        $pdf->Output();
+
+
     }
 }
