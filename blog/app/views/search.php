@@ -34,9 +34,6 @@
                 <div class="box-title">
                     <div class="title-bar">
                         <h1>Kết Quả Tìm Kiếm: <?php echo $search ?></h1>
-                        <!-- <a class="read_more" href="sanpham.php">
-                        Xem thêm
-                    </a> -->
                     </div>
                 </div>
                 <div class="pro_all_gird">
