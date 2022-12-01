@@ -85,11 +85,8 @@
                     </div>
                 </div>
             </div>
-            <!--start:left-->
             <div class="clear"></div>
         </div>
     </div>
 </section>
-<!---End bg_in----->
-<!--end:body-->
 <div class="clear"></div>

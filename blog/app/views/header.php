@@ -53,12 +53,6 @@ if (!isset($_SESSION)) {
     <div>
         <header>
             <div style="text-align: center; width: 100%; background: #ffbf00;">
-                <!-- <div class="bg_in">
-                <p class="p_infor">
-                    <span><i class="fa fa-envelope-o" aria-hidden="true"></i>Email: trannhonhoa2001@gmail.com</span>
-                    <span><i class="fa fa-phone" aria-hidden="true"></i> Hotline: 0912605156</span>
-                </p>
-            </div> -->
                 <img src="https://cdn.tgdd.vn/2022/01/banner/lixi-1200-44-1200x44.png" alt="">
             </div>
             <div class="header_top_menu">

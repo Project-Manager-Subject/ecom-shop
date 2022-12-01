@@ -20,7 +20,7 @@
                     </a>
                 </div>
                 <?php if (!empty($post)) : ?>
-                    <!--breadcrumbs-->
+                   
                     <div class="breadcrumbs">
                         <ol itemscope itemtype="http://schema.org/BreadcrumbList">
                             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
@@ -38,7 +38,7 @@
                             </li>
                         </ol>
                     </div>
-                    <!--breadcrumbs-->
+                 
                     <div class="content_page">
                         <div class="box-title">
                             <div class="title-bar">
@@ -87,6 +87,4 @@
         </div>
     </div>
 </section>
-<!---End bg_in----->
-<!--end:body-->
 <div class="clear"></div>
