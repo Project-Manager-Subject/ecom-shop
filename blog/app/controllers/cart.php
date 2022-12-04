@@ -19,7 +19,7 @@ class cart extends DController
         $table_category_post = "tbl_category_post";
         $data['category_product'] = $model->select($table_category_product);
         $data['category_post'] = $model->select($table_category_post);
-        //
+        //load call data
         $this->load->view("header", $data);
         $this->load->view("step_giohang");
         $this->load->view("cart");
