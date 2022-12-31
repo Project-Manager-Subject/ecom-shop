@@ -109,7 +109,7 @@ if (!isset($_SESSION)) {
                                                     
                                                     ?>
                                                             <li class ="active has-sub">
-                                                                <a href="<?php echo BASE_URL ?>/product_home/list_product_ByID/<?php echo $value['title_category_product'] ?>">
+                                                                <a href="<?php echo BASE_URL ?>/product_home/list_product_ByID/<?php echo $value['id_category_product'] ?>">
                                                                 <span><?php echo $value['title_category_product'] ?></span>
                                                                 </a>
                                                             

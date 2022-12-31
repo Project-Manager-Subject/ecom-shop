@@ -1,5 +1,7 @@
 <section>
+    <div class="container">
         <h1>Kết Quả Tìm Kiếm: <?php echo $search ?></h1>
+    </div>
     <?php if (!empty($product)) : ?>
         <div class="bg_in">
             <div class="breadcrumbs">
